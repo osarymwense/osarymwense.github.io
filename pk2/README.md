@@ -55,7 +55,7 @@ paper-kit-2
 
 ### License
 
-- Copyright 2017 Creative Tim (http://osasgaiusobaseki.com)
+- Copyright 2017 Osas Gaius-Obaseki (http://osasgaiusobaseki.com)
 - Licensed under MIT (https://github.com/osarymwense/master/LICENSE.md)
 
 
@@ -69,5 +69,3 @@ Instagram: <https://www.instagram.com/osas_gaius>
 
 [CHANGELOG]: ./CHANGELOG.md
 [LICENSE]: ./LICENSE.md
-[version-badge]: https://img.shields.io/badge/version-2.1.0-blue.svg
-[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
