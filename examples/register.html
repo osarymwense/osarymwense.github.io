@@ -83,37 +83,40 @@
 				<i class="fa fa-instagram"></i>
 				</a>
                                 </div>
-						<!-- Begin Mailchimp Signup Form -->
+	<?php
+// Check for empty fields
+if(empty($_POST['name'])      ||
+   empty($_POST['email'])     ||
+   empty($_POST['phone'])     ||
+   empty($_POST['message'])   ||
+   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+   {
+   echo "No arguments Provided!";
+   return false;
+   }
 
-				<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
-			          <style type="text/css">
-				#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
-				/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-			       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-				</style>
-				<div id="mc_embed_signup">
-			<form action="https://osasgaiusobaseki.us20.list-manage.com/subscribe/post?u=8ec28cff6f3afe89fce390451&amp;id=36277ac057"
-		method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-				<div id="mc_embed_signup_scroll">
-		<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-		<div style="position: absolute; left: -5000px;" aria-hidden="true">
-		<input type="text" name="b_8ec28cff6f3afe89fce390451_36277ac057" tabindex="-1" value="">
-		</div>
-		<div class="clear">
-		<input class="btn btn-primary btn-xl" type="submit" value="Find out more" name="subscribe"
-		id="mc-embedded-subscribe" class="button">
-		</div>
-		</div>
-		</form>
-		</div>
+$name = strip_tags(htmlspecialchars($_POST['name']));
+$email_address = strip_tags(htmlspecialchars($_POST['email']));
+$phone = strip_tags(htmlspecialchars($_POST['phone']));
+$message = strip_tags(htmlspecialchars($_POST['message']));
 
-	<!--End mc_embed_signup-->
+// Create the email and send the message
+$to = 'info@odslab.net'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+$email_subject = "Website Contact Form:  $name";
+$email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
+$headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+$headers .= "Reply-To: $email_address";
+mail($to,$email_subject,$email_body,$headers);
+return true;
+?>
+
                                 
                             </div>
                         </div>
                     </div>
 		<div class="footer register-footer text-center">
-		<h6>&copy; <script>document.write(new Date().getFullYear())</script>, Created by Osas Gaius-Obaseki </h6>
+		<h6>&copy; <script>document.write(new Date().getFullYear())</script>, 
+			Created by <a href="www.odslab.net"> ODSLAB</a> </h6>
 		</div>
                 </div>
         </div>
